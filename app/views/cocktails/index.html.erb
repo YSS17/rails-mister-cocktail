@@ -1,0 +1,19 @@
+<div class="flex">
+  <span class="btn"><%= link_to "Engineer your cocktail", new_cocktail_path %></span>
+</div>
+
+<div class="container">
+    <% @cocktails.each do |cocktail| %>
+      <div class="card">
+        <div class="card-category">Drinks</div>
+        <div class="card-description">
+          <h2><%= cocktail.name %></h2>
+          <%= link_to "Show", cocktail_path(cocktail)%>
+          <%= link_to cocktail_path(cocktail), method: :delete, data: { confirm: "Are you sure?" } do %>
+            <i class="fa fa-bomb" aria-hidden="true"></i>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    
+</div>
